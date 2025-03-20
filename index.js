@@ -2,7 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import { globalErrorHandler, notFoundHandler } from './error/error-handler.js';
-import routes from './routes.js';
+import routes from './routes/routes.js';
+
 dotenv.config();
 
 const PORT = process.env.PORT || 9000
