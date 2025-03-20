@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import { globalErrorHandler, notFoundHandler } from './error/error-handler.js';
-import router from './routes.js';
+import routes from './routes.js';
 dotenv.config();
 
 const PORT = process.env.PORT || 9000
@@ -16,7 +16,7 @@ connectDB();
 
 app.use(express.json())
 
-app.use(router)
+app.use('/v1/api', routes)
 
 app.get('/', (req, res) => {
     res.json({ status: true, message: `Server is running port: ${PORT}` })
